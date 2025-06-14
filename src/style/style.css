@@ -283,9 +283,21 @@ h2 {
 }
 
 @media (max-width: 768px) {
+    *{
+        text-align: center;
+    }
+
+    .usage-steps{
+        padding-left: 0;
+    }
+    
     .container {
         padding: 20px;
-        margin: 10px;
+        width: 100%;
+    }
+
+    .container .logo {
+        width: 100%;
     }
 
     h1 {
