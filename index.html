@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rodricon - Pack de Iconos Web Modernos</title>
+    <script src="src/js/icons.js"></script>
+    <script src="src/js/index.js"></script>
+    <link rel="stylesheet" href="src/style/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <section class="header">
+            <div class="logo">
+                <img src="src/img/logo.png" alt="Logo Rodricon" width="100">
+            </div>
+            <h1>Pack de Iconos Web Modernos</h1>
+            <p class="subtitle">Colección de iconos SVG escalables y personalizables para tus proyectos web</p>
+        </section>
+
+        <!-- Sección de descarga y uso -->
+        <section class="download-section">
+            <h3>🚀 <span>¿Cómo usar estos iconos?</span></h3>
+
+            <ul class="usage-steps">
+                <li>
+                    <strong>1. Instala o descarga:</strong>
+                    Haz clic en el botón para descargar todos los iconos en formato SVG.
+                </li>
+                <li>
+                    <strong>2. Inserta en tu HTML:</strong>
+                    Puedes usar el archivo directamente o integrarlo mediante un CDN.
+                    <div class="code-snippet">
+                        <code></code>
+                    </div>
+                </li>
+                <li>
+                    <strong>3. Personaliza:</strong>
+                    Cambia colores, tamaños y efectos fácilmente con CSS.
+                    <div class="code-snippet">
+                        <code>.icon { width: 24px; fill: #7c3aed; }</code>
+                    </div>
+                    O usando clases de bootstrap.
+                </li>
+                <li>
+                    <strong>4. Clic para copiar:</strong>
+                    Haz clic en cualquier icono para copiar las clases del icono en tu portapapeles.
+                </li>
+            </ul>
+
+            <button class="download-btn" onclick="openRepository()">Acceder al repositorio</button>
+
+            <div class="details">
+                <p><strong>🎨 Personalización:</strong> Cambia fácilmente colores, tamaños y efectos</p>
+                <p><strong>🌐 Compatibilidad:</strong> Funciona en todos los navegadores modernos</p>
+            </div>
+        </section>
+
+        <section class="search-section">
+            <input type="text" id="icon-search" placeholder="Buscar icono..." class="search-input">
+        </section>
+
+        <!-- Navegación y UI -->
+        <div class="category">
+            <h2 class="category-title">Navegación y UI</h2>
+            <div class="icons-grid" id="navegacionyui"></div>
+        </div>
+
+        <!-- Comunicación -->
+        <div class="category">
+            <h2 class="category-title">Comunicación</h2>
+            <div class="icons-grid" id="comunicacion"></div>
+        </div>
+
+        <!-- Archivos y Documentos -->
+        <div class="category">
+            <h2 class="category-title">Archivos y Documentos</h2>
+            <div class="icons-grid" id="archivosydocumentos"></div>
+        </div>
+
+        <!-- Redes Sociales -->
+        <div class="category">
+            <h2 class="category-title">Redes Sociales</h2>
+            <div class="icons-grid" id="redessociales"></div>
+        </div>
+
+        <!-- Comercio -->
+        <div class="category">
+            <h2 class="category-title">Comercio</h2>
+            <div class="icons-grid" id="comercio"></div>
+        </div>
+    </div>
+
+    <script>
+        // Función para copiar SVG al portapapeles
+        document.querySelectorAll('.icon-card').forEach(card => {
+            card.addEventListener('click', function () {
+                const icon = this.querySelector('i');
+                const iconClass = icon.getAttribute('class');
+
+                navigator.clipboard.writeText(iconClass).then(() => {
+                    // Efecto visual de copiado
+                    const originalBg = this.style.background;
+                    this.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+                    this.style.color = 'white';
+
+                    setTimeout(() => {
+                        this.style.background = originalBg;
+                        this.style.color = '';
+                    }, 800);
+
+                    // Mostrar notificación
+                    showNotification('¡Icono copiado al portapapeles!');
+                });
+            });
+        });
+
+        function showNotification(message) {
+            // Crear notificación temporal
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: linear-gradient(135deg, #10b981, #059669);
+                color: white;
+                padding: 15px 25px;
+                border-radius: 12px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+                z-index: 1000;
+                font-weight: 600;
+                transform: translateX(400px);
+                transition: transform 0.3s ease;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => notification.style.transform = 'translateX(0)', 100);
+            setTimeout(() => {
+                notification.style.transform = 'translateX(400px)';
+                setTimeout(() => document.body.removeChild(notification), 300);
+            }, 2000);
+        }
+
+        function openRepository() {
+            window.open('https://github.com/rodricon/Rodricon', '_blank');
+        }
+
+        // Animaciones adicionales al cargar
+        window.addEventListener('load', () => {
+            const cards = document.querySelectorAll('.icon-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 50);
+            });
+        });
+    </script>
+</body>
+
+</html>
