@@ -43,6 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const icon = document.createElement('i');
             icon.classList.add('ricon');
             icon.classList.add(`ricon-${iconName}`);
+            icon.classList.add('size-24');
             icon.innerHTML = svg;
 
             const car = document.createElement('div');

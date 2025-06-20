@@ -168,9 +168,6 @@ h2 {
 }
 
 .icon-svg {
-    width: 48px;
-    height: 48px;
-    margin: 0 auto 15px;
     transition: transform 0.3s ease;
 }
 
@@ -281,6 +278,21 @@ h2 {
     margin-top: 10px;
     overflow-x: auto;
 }
+
+.size-12 { font-size: 12px !important; }
+.size-14 { font-size: 14px !important; }
+.size-16 { font-size: 16px !important; }
+.size-18 { font-size: 18px !important; }
+.size-24 { font-size: 24px !important; }
+.size-32 { font-size: 32px !important; }
+.size-48 { font-size: 48px !important; }
+.size-64 { font-size: 64px !important; }
+
+/* Colores */
+.text-blue { color: #3182ce; }
+.text-green { color: #38a169; }
+.text-red { color: #e53e3e; }
+.text-purple { color: #805ad5; }
 
 @media (max-width: 768px) {
     *{
