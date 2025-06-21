@@ -1,4 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
+    loadIcons();
+});
+
+function loadIcons(){
     document.querySelectorAll('i.ricon').forEach(el => {
         const classes = Array.from(el.classList);
         const iconClass = classes.find(c => c.startsWith('ricon-') && c !== 'ricon');
@@ -32,4 +36,4 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
     });
-});
+}
